@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 100% 98%;
+    --foreground: 225 9% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 9% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 9% 9%;
+
+    --primary: 236 99% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 225 9% 9%;
+
+    --muted: 0 0% 100%;
+    --muted-foreground: 236 9% 37%;
+
+    --accent: 236 99% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 75% 40%;
+    --warning: 38 95% 50%;
+
+    --border: 234 17% 28%;
+    --input: 234 17% 28%;
+    --ring: 236 99% 65%;
+
+    --nav-default: 234 17% 28%;
+    --breadcrumb-default: 254 6% 59%;
+
+    --radius: 0.75rem;
+
+    --gradient-hero: linear-gradient(180deg, hsl(240 100% 98%) 0%, hsl(236 100% 95%) 100%);
+    --gradient-cta: linear-gradient(90deg, hsl(236 99% 65%) 0%, hsl(236 99% 75%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 100% 98%) 100%);
+    --gradient-line: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.3) 50%, transparent 100%);
+    --glow-primary: 0 8px 32px -8px hsl(var(--primary) / 0.35);
+    --glow-accent: 0 0 20px hsl(var(--primary) / 0.25);
+
+    --shadow-soft: 0 1px 2px 0 hsl(225 9% 9% / 0.06), 0 1px 3px 0 hsl(225 9% 9% / 0.08);
+    --shadow-elegant: 0 10px 30px -12px hsl(var(--primary) / 0.18);
+    --shadow-glow: 0 0 80px -20px hsl(var(--primary) / 0.30);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { color-scheme: light; }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-display; font-weight: 900; }
+  #root { position: relative; z-index: 1; }
+}
+
+@layer components {
+  .text-h1         { @apply font-display text-foreground; font-size: 42px; line-height: 52px; font-weight: 900; }
+  .text-h1-article { @apply font-display text-foreground; font-size: 42px; line-height: 52px; font-weight: 900; }
+  .text-h2         { @apply font-display text-foreground; font-size: 34px; line-height: 50px; font-weight: 900; }
+  .text-h3         { @apply font-display text-foreground; font-size: 26px; line-height: 38px; font-weight: 900; }
+  .text-h4         { @apply font-display text-foreground; font-size: 18px; line-height: 27px; font-weight: 500; }
+  .text-h5         { @apply text-h6; }
+  .text-h6         { @apply font-display text-foreground; font-size: 16px; line-height: 24px; font-weight: 500; }
+
+  .text-lead       { @apply text-muted-foreground; font-size: 18px; line-height: 24px; font-weight: 400; }
+  .text-body       { @apply text-muted-foreground; font-size: 18px; line-height: 24px; font-weight: 400; }
+  .text-body-sm    { @apply text-muted-foreground; font-size: 16px; line-height: 20px; font-weight: 400; }
+  .text-meta       { font-size: 16px; line-height: 24px; font-weight: 500; color: hsl(var(--nav-default)); }
+  .text-caption    { @apply text-muted-foreground; font-size: 16px; line-height: 20px; font-weight: 400; }
+  .text-stat       { @apply text-foreground font-display; font-size: 42px; line-height: 52px; font-weight: 900; }
+
+  .text-breadcrumb { font-size: 18px; line-height: 26px; font-weight: 500; color: hsl(var(--breadcrumb-default)); }
+
+  .text-gradient {
+    background-image: var(--gradient-cta);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+  }
+
+  .surface-card     { @apply bg-card border border-border/10 rounded-xl; box-shadow: var(--shadow-soft); }
+  .surface-elevated { @apply bg-card border border-primary/20 rounded-xl; box-shadow: var(--shadow-elegant); }
+  .surface-gradient { background: var(--gradient-card); @apply border border-border/10 rounded-xl; }
+
+  .divider-glow { height: 1px; background: var(--gradient-line); }
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-cta  { background: var(--gradient-cta); }
+  .glow-primary { box-shadow: var(--glow-primary); }
+  .glow-accent  { box-shadow: var(--glow-accent); }
+
+  .section-py           { @apply py-20 md:py-24; }
+  .section-py-sm        { @apply py-16 md:py-20; }
+  .content-container    { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .section-heading-center { @apply text-center mb-10 max-w-2xl mx-auto; }
+}
