@@ -81,7 +81,7 @@ export default function ArticlePage({ meta, content, related, faqs }: Props) {
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={articleSchema} />
-      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: breadcrumbLabel }]} />
+      <Breadcrumbs items={[{ label: "Blog", href: "/" }, { label: breadcrumbLabel }]} />
 
       <main className="pb-20 pt-10 md:pt-14">
         <div className="content-container">
