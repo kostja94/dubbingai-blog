@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import FinalCTASection from "@/components/shared/FinalCTASection";
@@ -35,32 +35,6 @@ function extractToc(markdown: string): { id: string; label: string }[] {
 
 export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
   const toc = useMemo(() => extractToc(content), [content]);
-  const [activeId, setActiveId] = useState(toc[0]?.id ?? "");
-
-  useEffect(() => {
-    const ids = toc.map((t) => t.id);
-    if (ids.length === 0) return;
-
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    if (els.length === 0) return;
-
-    const handleScroll = () => {
-      const threshold = 120; // px from viewport top
-      let current = els[0].id;
-      for (const el of els) {
-        if (el.getBoundingClientRect().top <= threshold) {
-          current = el.id;
-        } else {
-          break;
-        }
-      }
-      setActiveId(current);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [toc]);
 
   const articleSchema = useMemo(
     () => ({
@@ -147,11 +121,7 @@ export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
                         <a
                           key={t.id}
                           href={`#${t.id}`}
-                          className={`block py-1 transition-colors ${
-                            activeId === t.id
-                              ? "text-foreground font-semibold"
-                              : "text-muted-foreground hover:text-foreground"
-                          }`}
+                          className="block py-1 transition-colors text-muted-foreground hover:text-foreground"
                         >
                           {t.label}
                         </a>
