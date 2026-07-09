@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import { getPost, getPostSlugs, getAllPosts } from "@/lib/blog-server";
+import { getPost, getPostSlugs } from "@/lib/blog-server";
 import ArticlePage from "@/components/blog/ArticlePage";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -42,8 +42,7 @@ export default async function Page({ params }: Props) {
     if (meta.superseded) {
       permanentRedirect(meta.href);
     }
-    const related = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3);
-    return <ArticlePage meta={meta} content={content} related={related} faqs={faqs} />;
+    return <ArticlePage meta={meta} content={content} faqs={faqs} />;
   } catch {
     notFound();
   }

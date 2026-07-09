@@ -15,7 +15,6 @@ import { type BlogPost, plainText } from "@/lib/blog";
 type Props = {
   meta: BlogPost;
   content: string;
-  related: BlogPost[];
   faqs: FaqItem[];
 };
 
@@ -31,7 +30,7 @@ function extractToc(markdown: string): { id: string; label: string }[] {
   return headings;
 }
 
-export default function ArticlePage({ meta, content, related, faqs }: Props) {
+export default function ArticlePage({ meta, content, faqs }: Props) {
   const toc = useMemo(() => extractToc(content), [content]);
   const [activeId, setActiveId] = useState(toc[0]?.id ?? "");
 
@@ -155,28 +154,6 @@ export default function ArticlePage({ meta, content, related, faqs }: Props) {
               </aside>
             )}
           </div>
-
-          {related.length > 0 && (
-            <div className="mt-16">
-              <h2 className="text-h3 text-foreground mb-8">Related Articles</h2>
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={p.href}
-                      className="group surface-card flex flex-col overflow-hidden rounded-xl border border-border hover:border-primary/60 transition-all"
-                    >
-                      <div className="aspect-[16/10] overflow-hidden bg-muted/40">
-                        <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover" />
-                      </div>
-                      <div className="p-5">
-                        <h3 className="text-h6 text-foreground leading-snug">{p.title}</h3>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {faqs.length > 0 && (
