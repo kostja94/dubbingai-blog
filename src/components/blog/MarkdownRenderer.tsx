@@ -39,13 +39,13 @@ export default function MarkdownRenderer({ content, featuredImage }: Props) {
     <div
       className="prose prose-lg max-w-none
         prose-headings:text-foreground prose-headings:font-bold
-        prose-h2:mt-14 prose-h2:scroll-mt-24 prose-h2:text-h2
+        prose-h2:mt-10 prose-h2:scroll-mt-24 prose-h2:text-h2
         prose-h3:mt-10 prose-h3:scroll-mt-24 prose-h3:text-h3
-        prose-p:mt-5 prose-p:text-[18px] prose-p:leading-6 prose-p:text-muted-foreground
+        prose-p:mt-5 prose-p:text-[18px] prose-p:leading-relaxed prose-p:text-foreground
         prose-a:text-primary prose-a:underline prose-a:decoration-primary/40 prose-a:underline-offset-4 hover:prose-a:decoration-primary
         prose-strong:font-semibold prose-strong:text-foreground
-        prose-ul:mt-5 prose-ul:space-y-2.5 prose-ul:pl-5 prose-ul:text-[18px] prose-ul:leading-6 prose-ul:text-muted-foreground
-        prose-ol:mt-5 prose-ol:space-y-2.5 prose-ol:pl-5 prose-ol:text-[18px] prose-ol:leading-6 prose-ol:text-muted-foreground
+        prose-ul:mt-5 prose-ul:space-y-2.5 prose-ul:pl-5 prose-ul:text-[18px] prose-ul:leading-relaxed prose-ul:text-foreground
+        prose-ol:mt-5 prose-ol:space-y-2.5 prose-ol:pl-5 prose-ol:text-[18px] prose-ol:leading-relaxed prose-ol:text-foreground
         prose-li:list-disc prose-li:marker:text-muted-foreground/60
         prose-table:mt-5 prose-table:w-full prose-table:overflow-hidden prose-table:rounded-xl prose-table:border prose-table:border-border prose-table:text-sm
         prose-thead:bg-muted/40 prose-thead:text-foreground
