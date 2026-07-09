@@ -46,6 +46,8 @@ interface RawPost {
   isoDate: string;
   readTime: string;
   author: string;
+  ctaTitle?: string;
+  ctaIntro?: string;
 }
 
 const posts: RawPost[] = [];
@@ -68,6 +70,8 @@ for (const slug of slugs) {
     isoDate: String(dateStr),
     readTime: estimateReadTime(content),
     author: data.author || "Dubbing AI Team",
+    ctaTitle: data.cta_title || undefined,
+    ctaIntro: data.cta_intro || undefined,
   });
   contentMap[slug] = content.replace(
     /https:\/\/dubbingai\.io\/blog2\//g,

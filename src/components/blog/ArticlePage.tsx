@@ -8,7 +8,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import type { FaqItem } from "@/components/shared/FAQSection";
 import ShareRail from "@/components/blog/ShareRail";
 import JsonLd from "@/components/shared/JsonLd";
-import { buildBlogDetailCta } from "@/lib/finalCtaCopy";
+import { resolveArticleCta } from "@/lib/finalCtaCopy";
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 import KeyTakeaways from "@/components/blog/KeyTakeaways";
 import { type BlogPost, plainText } from "@/lib/blog";
@@ -165,7 +165,7 @@ export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
           <FAQSection id={`blog-${meta.slug}`} faqs={faqs} background="default" />
         )}
 
-        <FinalCTASection id="blog-detail" {...buildBlogDetailCta(meta.category)} />
+        <FinalCTASection id="blog-detail" {...resolveArticleCta(meta.ctaTitle, meta.ctaIntro)} />
       </main>
     </div>
   );
