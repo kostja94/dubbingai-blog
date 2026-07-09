@@ -6,7 +6,6 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import FinalCTASection from "@/components/shared/FinalCTASection";
 import FAQSection from "@/components/shared/FAQSection";
 import type { FaqItem } from "@/components/shared/FAQSection";
-import ShareButtons from "@/components/blog/ShareButtons";
 import ShareRail from "@/components/blog/ShareRail";
 import JsonLd from "@/components/shared/JsonLd";
 import { buildBlogIndexFinalCta } from "@/lib/finalCtaCopy";
@@ -118,9 +117,6 @@ export default function ArticlePage({ meta, content, related, faqs }: Props) {
                       <span>{meta.readTime}</span>
                     </p>
                   </div>
-                </div>
-                <div className="mt-5">
-                  <ShareButtons title={meta.title} url={articleUrl} />
                 </div>
               </div>
             </div>
