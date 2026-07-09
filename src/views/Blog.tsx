@@ -212,7 +212,7 @@ const Blog = ({ posts: allPosts }: Props) => {
     if (query.trim()) params.set("q", query.trim());
     if (activeCategory !== "All") params.set("category", activeCategory);
     const qs = params.toString();
-    const newUrl = qs ? `/?${qs}` : "/";
+    const newUrl = qs ? `/blog?${qs}` : "/blog";
     router.replace(newUrl, { scroll: false });
   }, [query, activeCategory, router]);
 

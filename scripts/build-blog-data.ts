@@ -58,7 +58,7 @@ for (const slug of slugs) {
   const is301 = !!data.superseded_by;
   posts.push({
     slug,
-    href: is301 ? `/${data.superseded_by}` : `/${slug}`,
+    href: is301 ? `/blog/${data.superseded_by}` : `/blog/${slug}`,
     superseded: is301,
     category: CATEGORY_MAP[data.category] || data.category || "",
     title: data.title || slug,
