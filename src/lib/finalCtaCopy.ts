@@ -1,3 +1,5 @@
+import CTA_DATA from "@/data/cta-data.json";
+
 export interface FinalCtaCopy {
   title: string;
   intro?: string;
@@ -12,11 +14,11 @@ export function buildBlogIndexFinalCta(): FinalCtaCopy {
   };
 }
 
-/** Return article-specific CTA from frontmatter, or fall back to generic. */
-export function resolveArticleCta(
-  ctaTitle: string | undefined,
-  ctaIntro: string | undefined,
-): FinalCtaCopy {
-  if (ctaTitle) return { title: ctaTitle, intro: ctaIntro };
+/** Resolve per-article CTA from cta-data.json. Falls back to generic. */
+export function resolveArticleCta(slug: string): FinalCtaCopy {
+  const entry = (CTA_DATA as Record<string, { ctaTitle: string; ctaIntro: string }>)[slug];
+  if (entry?.ctaTitle) {
+    return { title: entry.ctaTitle, intro: entry.ctaIntro };
+  }
   return buildBlogIndexFinalCta();
 }

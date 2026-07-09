@@ -38,8 +38,6 @@ lang: "en"
 status: "published"
 source: "manual"
 canonical: "https://dubbingai.io/blog/your-article-slug/"
-cta_title: "Your Call-to-Action Title"
-cta_intro: "Supporting sentence for the CTA. Keep it under 160 characters."
 ---
 ```
 

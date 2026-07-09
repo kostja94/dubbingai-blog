@@ -165,7 +165,7 @@ export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
           <FAQSection id={`blog-${meta.slug}`} faqs={faqs} background="default" />
         )}
 
-        <FinalCTASection id="blog-detail" {...resolveArticleCta(meta.ctaTitle, meta.ctaIntro)} />
+        <FinalCTASection id="blog-detail" {...resolveArticleCta(meta.slug)} />
       </main>
     </div>
   );

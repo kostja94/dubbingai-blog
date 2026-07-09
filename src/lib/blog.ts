@@ -11,8 +11,6 @@ export type BlogPost = {
   readTime: string;
   author: string;
   featured?: boolean;
-  ctaTitle?: string;
-  ctaIntro?: string;
 };
 
 export const BLOG_CATEGORIES = [

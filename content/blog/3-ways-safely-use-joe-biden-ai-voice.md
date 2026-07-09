@@ -14,8 +14,6 @@ source: "cms"
 canonical: "https://dubbingai.io/blog/3-ways-safely-use-joe-biden-ai-voice/"
 migrated_at: 2026-06-15
 superseded_by: ""
-cta_title: "Clone Voices Safely — Download Dubbing AI Free"
-cta_intro: "Responsible AI voice tools with privacy-first design. 500+ voices, real-time modulation — free for Windows and macOS."
 ---
 
 # 3 Ways to Safely Use Joe Biden AI Voice
