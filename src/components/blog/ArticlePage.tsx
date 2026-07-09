@@ -40,20 +40,26 @@ export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
   useEffect(() => {
     const ids = toc.map((t) => t.id);
     if (ids.length === 0) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: "-20% 0px -70% 0px" },
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
+
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (els.length === 0) return;
+
+    const handleScroll = () => {
+      const threshold = 120; // px from viewport top
+      let current = els[0].id;
+      for (const el of els) {
+        if (el.getBoundingClientRect().top <= threshold) {
+          current = el.id;
+        } else {
+          break;
+        }
+      }
+      setActiveId(current);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [toc]);
 
   const articleSchema = useMemo(
