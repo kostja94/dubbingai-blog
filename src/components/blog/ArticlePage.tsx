@@ -10,11 +10,14 @@ import ShareRail from "@/components/blog/ShareRail";
 import JsonLd from "@/components/shared/JsonLd";
 import { buildBlogIndexFinalCta } from "@/lib/finalCtaCopy";
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import KeyTakeaways from "@/components/blog/KeyTakeaways";
 import { type BlogPost, plainText } from "@/lib/blog";
+import type { KeyTakeawayItem } from "@/lib/blog-key-takeaways";
 
 type Props = {
   meta: BlogPost;
   content: string;
+  takeaways: KeyTakeawayItem[];
   faqs: FaqItem[];
 };
 
@@ -30,7 +33,7 @@ function extractToc(markdown: string): { id: string; label: string }[] {
   return headings;
 }
 
-export default function ArticlePage({ meta, content, faqs }: Props) {
+export default function ArticlePage({ meta, content, takeaways, faqs }: Props) {
   const toc = useMemo(() => extractToc(content), [content]);
   const [activeId, setActiveId] = useState(toc[0]?.id ?? "");
 
@@ -120,6 +123,8 @@ export default function ArticlePage({ meta, content, faqs }: Props) {
               </div>
             </div>
           </header>
+
+          <KeyTakeaways items={takeaways} />
 
           <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_260px]">
             <article className="min-w-0 max-w-none">

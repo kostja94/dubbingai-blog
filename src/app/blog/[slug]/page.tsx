@@ -38,11 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   try {
-    const { meta, content, faqs } = getPost(slug);
+    const { meta, content, takeaways, faqs } = getPost(slug);
     if (meta.superseded) {
       permanentRedirect(meta.href);
     }
-    return <ArticlePage meta={meta} content={content} faqs={faqs} />;
+    return <ArticlePage meta={meta} content={content} takeaways={takeaways} faqs={faqs} />;
   } catch {
     notFound();
   }
