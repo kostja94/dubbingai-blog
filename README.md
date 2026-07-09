@@ -44,6 +44,19 @@ canonical: "https://dubbingai.io/blog/your-article-slug/"
 3. Frontmatter 下方写 Markdown 正文
 4. 可在文章末尾添加 FAQ 段落（`## FAQ`，使用 `###` 表示问题）
 
+### 自定义 Final CTA
+
+每篇文章底部的 CTA 统一维护在 `src/data/cta-data.json`。每个 slug 对应一组 `ctaTitle`（一行）和 `ctaIntro`（两行）。编辑该文件后重新构建即生效，无需改动 Markdown。
+
+```json
+{
+  "voice-clone": {
+    "ctaTitle": "Give Your Voice a Makeover",
+    "ctaIntro": "From gaming to streaming, Dubbing AI voice changer does it all. 500+ AI voices, instant switching. Free for Windows and macOS."
+  }
+}
+```
+
 ### 分类系统
 
 | category key | 显示名称 |

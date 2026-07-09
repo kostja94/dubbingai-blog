@@ -66,11 +66,11 @@ const FAQSection = ({
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn("mb-8", isDark && "mb-8")}>
           <h2
-            className={cn(
+            className={
               isDark
                 ? "dh-display uppercase text-white leading-[0.95]"
-                : "text-h2 text-foreground",
-            )}
+                : "font-display font-bold text-[34px] leading-[50px] text-foreground"
+            }
             style={
               isDark
                 ? { fontSize: "clamp(32px, 4vw, 52px)" }
@@ -105,7 +105,7 @@ const FAQSection = ({
             >
               <AccordionTrigger
                 className={cn(
-                  "text-left text-h6 hover:no-underline py-5",
+                  "text-left font-bold text-[26px] leading-[38px] hover:no-underline py-5",
                   isDark
                     ? "text-white hover:text-white/80"
                     : "text-foreground hover:text-foreground/80",
